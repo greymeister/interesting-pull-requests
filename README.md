@@ -25,4 +25,8 @@ This will allow reqeusts against GitHub's API, although you will still be effect
 
 ### Usage
 
-./script/
+Run <code>bundle install</code> to install gem dependencies.  Then run the following:
+
+    ./script/review user/repo
+
+Optionally, specs can be run by just typing <code>rake</code> or <code>rake test</code>.
