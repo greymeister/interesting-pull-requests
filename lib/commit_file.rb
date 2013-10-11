@@ -7,4 +7,8 @@ class CommitFile
     @status = status
   end
 
+  def to_s
+    return "#{filename}"
+  end
+
 end

@@ -1,4 +1,6 @@
 class PullRequest
+  attr_reader :commit_files, :id, :url
+
   def initialize(id, url)
     @id = id
     @url = url
@@ -11,11 +13,11 @@ class PullRequest
   end
 
   def interesting!
-    @interesting = !@interesting
+    @interesting = true
   end
 
   def populate_commit_files(files)
-    @commit_files << files
+    @commit_files.concat(files)
     @commit_files.freeze
   end
 

@@ -1,0 +1,17 @@
+#!/bin/bash 
+
+set -e
+
+die () {
+    
+  echo "Usage: $0 'user/repo'" 
+  echo >&2 "$@"
+  exit 1
+}
+
+[ "$#" -eq 1  ] || die "1 argument required, $# provided"
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $DIR/lib
+./review.rb $@
+cd $OLDPWD

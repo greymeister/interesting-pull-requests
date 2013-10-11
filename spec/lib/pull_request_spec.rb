@@ -18,7 +18,7 @@ end
 describe PullRequest, "#populate_commit_files" do
   it "does not allow modification once commit files are populated" do
     pull_request = PullRequest.new('1234', 'http://google.com')
-    pull_request.populate_commit_files(double())
-    expect{pull_request.populate_commit_files(double())}.to raise_error(RuntimeError)
+    pull_request.populate_commit_files(Array.new)
+    expect{pull_request.populate_commit_files(Array.new())}.to raise_error(RuntimeError)
   end
 end
