@@ -1,17 +1,9 @@
-IsYourRequestHotOrNot
+interesting-pull-requests
 ================================
 
 ### Description
 
-Library to determine whether a pull request to a GitHub repo is "interesting" as defined by the following criteria:
-
-*
-*
-*
-
-### Pull Requests and other Strangers
-
-###Strangers and other Pull Requests
+Checks GitHub pull request for criteria to see whether they are "interesting" based on a configurable set of rules.
 
 ### Configuration
 
