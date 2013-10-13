@@ -1,0 +1,6 @@
+# Rules configuration
+---
+:rules:
+- :PatchContainsGemModificationsRule
+- :PatchDoesNotChangeSpecsRule
+- :PatchContainsKeywordsRule
