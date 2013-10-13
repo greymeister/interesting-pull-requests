@@ -1,6 +1,12 @@
 class PullRequest
   attr_reader :commit_files, :id, :url
 
+  def self.build_from_pull_request_result(pull_request_result)
+    pull_request_number = pull_request_result['number']
+    pull_request_url = pull_request_result['_links']['self']['href']
+    PullRequest.new(pull_request_number, pull_request_url)
+  end
+
   def initialize(id, url)
     @id = id
     @url = url
