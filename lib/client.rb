@@ -8,7 +8,7 @@ class Client
   attr_reader :pull_requests
 
   def initialize
-    @configuration = Configurer.configure('../credentials.yml')
+    @configuration = Configurer.configure('credentials.yml')
     @octoclient = Octokit::Client.new :login => @configuration.login, :password => @configuration.password
     @pull_requests = Array.new()
   end

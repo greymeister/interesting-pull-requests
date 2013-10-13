@@ -1,17 +1,25 @@
-#!/bin/bash 
+#!/usr/bin/env ruby
 
-set -e
+# :set filetype=rb
 
-die () {
-    
-  echo "Usage: $0 'user/repo'" 
-  echo >&2 "$@"
-  exit 1
-}
+# Set up gems listed in the Gemfile.
+ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../Gemfile', __FILE__)
 
-[ "$#" -eq 1  ] || die "1 argument required, $# provided"
+require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-cd $DIR/lib
-./review.rb $@
-cd $OLDPWD
+require_relative 'lib/reviewer'
+
+if ARGV.empty?
+  puts "Usage: review 'user/repo'"
+  exit
+end
+
+githubRepo = ARGV[0]
+reviewer = Reviewer.new(githubRepo)
+reviewer.review_pull_requests
+reviewer.review_results
+
+
+
+
+
